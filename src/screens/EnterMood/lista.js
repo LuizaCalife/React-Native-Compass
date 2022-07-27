@@ -25,7 +25,7 @@ const DATA = [
 {
     id: 3,
     data: 'HOJE, 23 DE JANEIRO',
-    status: 'MAL',
+    status: 'TRISTE',
     time: '08:35',
     actions: ['celebration','sports-soccer', 'restaurant'],
     description: 'Hoje foi um dia muito bom. Joguei futebol no parque, cozinhei uma lasanha para minha família. E à noite, fui à festa de aniversário do meu amigo.',
@@ -34,7 +34,7 @@ const DATA = [
 {
     id: 4,
     data: 'HOJE, 23 DE JANEIRO',
-    status: 'TRISTE',
+    status: 'ACABADO',
     time: '08:35',
     actions: ['celebration','sports-soccer', 'restaurant'],
     description: 'Hoje foi um dia muito bom. Joguei futebol no parque, cozinhei uma lasanha para minha família. E à noite, fui à festa de aniversário do meu amigo.',
@@ -70,7 +70,7 @@ const DATA = [
 {
     id: 8,
     data: 'HOJE, 23 DE JANEIRO',
-    status: 'MAL',
+    status: 'TRISTE',
     time: '08:35',
     actions: ['celebration','sports-soccer', 'restaurant'],
     description: 'Hoje foi um dia muito bom. Joguei futebol no parque, cozinhei uma lasanha para minha família. E à noite, fui à festa de aniversário do meu amigo.',

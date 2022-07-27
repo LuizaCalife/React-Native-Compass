@@ -6,9 +6,10 @@ import { useNavigation } from '@react-navigation/native';
 
 const HumorColors = {
 	BEM: '#E24B4B',
-	MAL: '#4B75E2',
+	ACABADO: '#4B75E2',
 	TRISTE: '#4BE263',
-	RADIANTE: '#FFD700',
+	RADIANTE:'#C801FA',
+	OK: '#FFD700',
 }
 export const HumorCard = ({ image, data, status, time, description, actions }) => {
 	const Navigation = useNavigation()

@@ -46,6 +46,7 @@ const style = StyleSheet.create({
         paddingRight: 25,
         width: '100%',
         height: 89,
+        fontFamily: 'SourceSansPro-SemiBold'
     },
     Feel: {
         marginTop: 10,
@@ -77,7 +78,7 @@ const style = StyleSheet.create({
     },
     BoldText: {
         fontWeight: 'bold',
-        color: 'black'
+        color: 'black',
     },
     Botton: {
         alignSelf: 'flex-start',
@@ -88,7 +89,8 @@ const style = StyleSheet.create({
     InsideText: {
         fontSize: 13,
         fontWeight: '400',
-        color: 'black'
+        color: 'black',
+        fontFamily: 'SourceSansPro-SemiBold'
     }
 
 })

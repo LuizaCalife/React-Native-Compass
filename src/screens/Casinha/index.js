@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
         fontSize: 17,
         color: '#acacac',
         textAlign: 'center',
-        marginTop: 32
+        marginTop: 32,
+        fontFamily: 'SourceSansPro-SemiBold'
     }
 }
 )

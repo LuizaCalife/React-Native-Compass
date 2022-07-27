@@ -3,12 +3,14 @@ import { View, FlatList } from 'react-native';
 import { HumorCard } from '../../components/cardHumors';
 import style from './styles';
 import DATA from './lista';
+import AddMood from '../AddMood';
 
 const Add = () => {
    return (
       <FlatList
          contentContainerStyle={{ paddingBottom: 25 }}
          data={DATA}
+         ListEmptyComponent={AddMood}
          keyExtractor={item => item.id}
          renderItem={({ item }) =>
             <View style={style.body}>

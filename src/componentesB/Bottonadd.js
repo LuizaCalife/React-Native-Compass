@@ -16,7 +16,6 @@ export default function Bottonadd() {
 const styles = StyleSheet.create({
 
   Icone: {
-
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
