@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import UserProfile from '../screens/TresLinhas';
+import UserProfile from '../screens/Profile';
 import Bottonadd from '../componentesB/Bottonadd';
 import Bottontres from '../componentesB/Bottontreslines';
 import Bottonhouse from '../componentesB/Bottonmenu';
