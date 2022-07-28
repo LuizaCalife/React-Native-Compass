@@ -1,10 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Modal, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import happy from '../../assets/humores/happy.png';
+import { useNavigation } from "@react-navigation/native";
 
 const EditProfile = () => {
+    const Navigation = useNavigation()
     return (
-        <View style={style.ViewAll}>
+        <View style={style.ViewAll}> 
             <View style={style.viewTop}>
                 <Image source={happy} style={style.Image} />
                 <TouchableOpacity style={style.ChangePhoto}>
@@ -34,12 +37,12 @@ const style = StyleSheet.create({
     Image: {
         width: 128,
         height: 128,
-        marginBottom: 40
+        marginBottom: 25
     },
     ViewAll: {
         flex: 1,
         alignItems: 'center',
-        marginTop: 40
+        marginTop: 45
     },
     ChangePhoto: {
         borderRadius: 6,
@@ -94,8 +97,7 @@ const style = StyleSheet.create({
         textTransform: 'uppercase',
         fontSize:15,
         fontWeight:'800'
-    }
-
+    },
 })
 export default EditProfile
 

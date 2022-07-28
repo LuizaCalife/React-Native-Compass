@@ -1,6 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Add from '../screens/EnterMood/index.js';
+import Add from '../screens/CardMood/index.js';
 import ModalScreen from '../screens/QuartaTela/index.js';
 
 const StackModal = createNativeStackNavigator();
