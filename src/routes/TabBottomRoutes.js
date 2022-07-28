@@ -6,6 +6,7 @@ import Bottontres from '../componentesB/Bottontreslines';
 import Bottonhouse from '../componentesB/Bottonmenu';
 import StackModalScreen from './StackModal';
 import StackAddRoutes from './StackAddRoutes';
+import StackPerfilRoutes from './StackEditRoutes';
 
 const Tab = createBottomTabNavigator();
 
@@ -53,7 +54,7 @@ function MyTabs() {
          />
          <Tab.Screen
             name='TresLinhas'
-            component={UserProfile}
+            component={StackPerfilRoutes}
             options={{
                tabBarIcon: ({ focused, color }) => (
                   <Bottontres focused={focused} color={color} />
