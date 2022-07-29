@@ -3,9 +3,7 @@ import { StyleSheet } from 'react-native';
 
 const style = StyleSheet.create({
     InsideCard: {
-        flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-around'
     },
     humorEmote: {
         width: 75,
@@ -67,6 +65,7 @@ const style = StyleSheet.create({
         justifyContent: 'space-around',
     },
     actionsNIcons: {
+        flexDirection:'row',
         backgroundColor: 'white',
         borderRadius: 20,
         marginTop: 25,
@@ -75,6 +74,7 @@ const style = StyleSheet.create({
         height: 158,
         marginBottom: 15,
         justifyContent: 'space-evenly',
+        alignItems:'center'
     },
     BoldText: {
         fontWeight: 'bold',
