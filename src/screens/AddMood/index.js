@@ -1,28 +1,30 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import happy from '../../assets/humores/happy.png';
-import radiant from '../../assets/humores/radiant.png';
-import ok from '../../assets/humores/ok.png';
-import sad from '../../assets/humores/sad.png';
-import terrible from '../../assets/humores/terrible.png';
+import { emojis } from '../CardMood/emoji';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import style from './style';
+import api from '../../services/api';
 
 const AddMood = () => {
     const Navigation = useNavigation()
-    const [id, setId] = useState(null)
-    const clickActiveEmoji = (key) => {
-        if (key == id) {
-            setId(null)
-        }
-        else {
-            setId(key)
-        }
-    };
+    const [id, setId] = useState(5)
     const [click, setClick] = useState(false)
     const [arrayAction, setArrayAction] = useState([])
+    const [description, setDescription] = useState('')
+    const [mood, setMood] = useState('')
+    const clickActiveEmoji = (key, id) => {
+        if (key == id) {
+            setId(5)
+        }
+        else {
+            setMood(emojis[key].nome)
+
+            setId(key)
+        }
+        console.log(mood)
+    };
     const clickActiveAction = (key) => {
         setClick(true)
         if (arrayAction.indexOf(key) !== -1) {
@@ -30,6 +32,25 @@ const AddMood = () => {
         }
         else if (arrayAction.length < 3) {
             setArrayAction([...arrayAction, key])
+        }
+        console.log(arrayAction)
+
+    }
+    const postCreateDailyEntry = async () => {
+        try {
+            await api.post('/daily_entries', {
+                "daily_entry": {
+                    "mood": mood,
+                    "activity_ids": arrayAction,
+                    "description": description
+                }
+            },{ 
+                headers:{
+                Authorization:`Bearer Z8eJp9iC8Fwyot24GCVlvZj-JvtXuxwJDdWZ-jcfYOM`
+                }
+            })
+        } catch (error) {
+            console.log(description, arrayAction, mood, error)
         }
     }
     return (
@@ -59,36 +80,15 @@ const AddMood = () => {
                     </View>
                 </View>
                 <View style={style.HumorChoose}>
-                    <View style={style.IconsStyle}>
-                        <TouchableOpacity onPress={() => clickActiveEmoji(0)} style={[style.IconsTop, { backgroundColor: id === 0 ? '#304ffe' : 'white' }]}>
-                            <Image source={radiant} style={style.humorEmote} />
-                        </TouchableOpacity>
-                        <Text style={[style.HumorFont, { color: id === 0 ? '#C801FA' : null }]}>RADIANTE</Text>
-                    </View>
-                    <View style={style.IconsStyle}>
-                        <TouchableOpacity onPress={() => clickActiveEmoji(1)} style={[style.IconsTop, { backgroundColor: id === 1 ? '#304ffe' : 'white' }]}>
-                            <Image source={happy} style={style.humorEmote} />
-                        </TouchableOpacity>
-                        <Text style={[style.HumorFont, { color: id === 1 ? '#E24B4B' : null }]}>FELIZ</Text>
-                    </View>
-                    <View style={style.IconsStyle}>
-                        <TouchableOpacity onPress={() => clickActiveEmoji(2)} style={[style.IconsTop, { backgroundColor: id === 2 ? '#304ffe' : 'white' }]}>
-                            <Image source={ok} style={style.humorEmote} />
-                        </TouchableOpacity>
-                        <Text style={[style.HumorFont, { color: id === 2 ? '#FFD700' : null }]}>OK</Text>
-                    </View>
-                    <View style={style.IconsStyle}>
-                        <TouchableOpacity onPress={() => clickActiveEmoji(3)} style={[style.IconsTop, { backgroundColor: id === 3 ? '#304ffe' : 'white' }]}>
-                            <Image source={sad} style={style.humorEmote} />
-                        </TouchableOpacity>
-                        <Text style={[style.HumorFont, { color: id === 3 ? '#4BE263' : null }]}>TRISTE</Text>
-                    </View>
-                    <View style={style.IconsStyle}>
-                        <TouchableOpacity onPress={() => clickActiveEmoji(4)} style={[style.IconsTop, { backgroundColor: id === 4 ? '#304ffe' : 'white' }]}>
-                            <Image source={terrible} style={style.humorEmote} />
-                        </TouchableOpacity>
-                        <Text style={[style.HumorFont, { color: id === 4 ? '#4B75E2' : null }]}>ACABADO</Text>
-                    </View>
+                    {emojis.map((item, index) => (
+                        <View style={style.IconsStyle} key={index}>
+                            <TouchableOpacity onPress={() => clickActiveEmoji(index, id)} style={[style.IconsTop, { backgroundColor: id === index ? '#304ffe' : 'white' }]}>
+                                <Image source={item.image} style={style.humorEmote} />
+                            </TouchableOpacity>
+                            <Text style={[style.HumorFont, { color: id === index ? item.color : null }]}>{item.name}</Text>
+                        </View>
+                    ))
+                    }
                 </View>
                 <View style={style.IconSelect}>
                     <View style={style.IconsOne}>
@@ -184,9 +184,10 @@ const AddMood = () => {
                 </View>
                 <View style={style.Happend}>
                     <TextInput style={style.Digit}
-                        placeholder='Escreva aqui o que aconteceu hoje...' />
+                        placeholder='Escreva aqui o que aconteceu hoje...'
+                        onChangeText={(Acontecimento) => setDescription(Acontecimento)} />
                 </View>
-                <TouchableOpacity style={style.bottomConfirm}>
+                <TouchableOpacity style={style.bottomConfirm} onPress={() => postCreateDailyEntry()}>
                     <Text style={style.SaveColor}>SALVAR</Text>
                 </TouchableOpacity>
             </SafeAreaView>

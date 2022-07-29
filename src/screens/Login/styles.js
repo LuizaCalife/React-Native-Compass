@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     Home: {
-
         flex: 1,
         backgroundColor: '#304ffe'
     },
@@ -43,6 +42,12 @@ const styles = StyleSheet.create({
         left: 30,
         fontWeight: 'bold',
         color: 'blue'
+    },
+    Error: {
+        justifyContent:'center',
+        alignItems:'center',
+        flex:1,
+        marginBottom:200
     }
 })
 export default styles
