@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://api.github.com",
+  baseURL: 'https://shrouded-shelf-01513.herokuapp.com',
 });
 
 export default api;
