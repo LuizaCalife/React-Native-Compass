@@ -11,7 +11,7 @@ export const HumorCard = ({ humor, date, description, actions, id }) => {
 	const Navigation = useNavigation()
 	const dateValue = new Date(date);
 	return (
-		<TouchableOpacity style={styles.Card} onPress={() => Navigation.navigate('ModalScreen')}>
+		<TouchableOpacity style={styles.Card} onPress={() => Navigation.navigate('ModalScreen',{id:id})}>
 			<View style={styles.viewTop}>
 				<Image style={styles.emoji} source={humorItens[humor].image} />
 				<View>

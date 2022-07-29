@@ -44,10 +44,8 @@ const AddMood = () => {
                     "activity_ids": arrayAction,
                     "description": description
                 }
-            },{ 
-                headers:{
-                Authorization:`Bearer Z8eJp9iC8Fwyot24GCVlvZj-JvtXuxwJDdWZ-jcfYOM`
-                }
+            }).then(Response => {
+                console.log(Response)
             })
         } catch (error) {
             console.log(description, arrayAction, mood, error)
