@@ -3,8 +3,11 @@ import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, AppRegistry
 import styles from './styles';
 import api from '../../services/api';
 import style from '../AddMood/style';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Login = ({ navigation }) => {
+
+  const [hidePass, setHidePass] = useState(true);
 
   const [Email, setEmail] = useState()
 
@@ -27,6 +30,7 @@ const Login = ({ navigation }) => {
     }
     else {
       console.log('ta errado')
+      setErrado(true)
     }
   }
 
@@ -63,13 +67,19 @@ const Login = ({ navigation }) => {
         onChangeText={(Text) => setEmail(Text)}
         value={Email}
       />
+      <View style={styles.input}>
       <TextInput
-        style={styles.input}
         placeholder='senha'
-        secureTextEntry
+        secureTextEntry={hidePass}
         onChangeText={(Text) => setPassword(Text)}
-        value={Password}
+        value={Password}   
       />
+      <TouchableOpacity style={style.eye}
+          onPress={() => setHidePass(!hidePass)}
+        >
+          <Icon name={hidePass ? "eye" : 'eye-off'} color='#969696' size={20} />
+        </TouchableOpacity>
+      </View>
       <TouchableOpacity
         onPress={validationInput}
         style={styles.button}>
