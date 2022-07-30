@@ -26,6 +26,10 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         fontSize: 15,
         left: 60,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 10
     },
     button: {
         backgroundColor: '#c6ceff',
@@ -44,10 +48,11 @@ const styles = StyleSheet.create({
         color: 'blue'
     },
     Error: {
-        justifyContent:'center',
-        alignItems:'center',
-        flex:1,
-        marginBottom:200
-    }
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+        marginBottom: 200
+    },
+
 })
 export default styles

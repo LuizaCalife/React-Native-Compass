@@ -170,6 +170,11 @@ const style = StyleSheet.create({
     },
     alignIcons: {
         alignItems: 'center'
+    },
+    ChooseThree: {
+        fontSize:17,
+        color:'#000',
+        fontWeight:'bold'
     }
 
 

@@ -88,6 +88,9 @@ const AddMood = () => {
                     ))
                     }
                 </View>
+                <View>
+                <Text style={style.ChooseThree}>Escolha até 3 ações:</Text>
+                </View>
                 <View style={style.IconSelect}>
                     <View style={style.IconsOne}>
                         <View style={style.alignIcons}>
